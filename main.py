@@ -1,6 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message,ReplyKeyboardMarkup,KeyboardButton
+from aiogram.types import (Message, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup,
+                                                                         InlineKeyboardButton,)
 from aiogram.filters import CommandStart, Command
 import os
 from dotenv import load_dotenv
@@ -12,6 +13,11 @@ klaviatura = ReplyKeyboardMarkup(
         [KeyboardButton(text='Telefon4'), KeyboardButton(text='kanal4')],
     ],
 resize_keyboard=True
+)
+kanallar = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text='1-kanal'), InlineKeyboardButton(text='2-kanal')],
+    ]
 )
 TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=TOKEN)
