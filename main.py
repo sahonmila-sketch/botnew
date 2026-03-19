@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -12,6 +12,21 @@ dp = Dispatcher()
 @dp.message(CommandStart())
 async def start(msg:Message):
     await msg.answer("Salem adamlar")
+@dp.message(Command('help'))
+async def help(msg:Message):
+    await msg.answer('ne jardem kerek')
+@dp.message(Command('about'))
+async def about(msg:Message):
+    await msg.answer('telegram admin')
+@dp.message(Command('baylanis'))
+async def baylanis(msg:Message):
+    await msg.answer('baylanis ushin nomer')
+@dp.message(Command('telegram kanal'))
+async def telegramkanallar(msg:Message):
+    await msg.answer('kanallar')
+@dp.message(Command('instagram'))
+async def instagram(msg:Message):
+    await msg.answer('insta tarmaq')
 
 async def main():
     print('bot isledi')
